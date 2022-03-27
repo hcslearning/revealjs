@@ -8,17 +8,21 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/reveal.min.css" integrity="sha512-e3dnmFe5hH2bJx1MvUU3PFToGVQ2xykp/VGERCkuh4lTGMJ5QuxKFRIwix8DfnfkavwJiL6rehb9e1d6mFLwlg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
 		<!-- otros themes: https://revealjs.com/themes/ Ejemplos: black, white, league, beige, sky, night, serif, simple, solarized, blood, moon -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/theme/league.min.css" />
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/theme/blood.min.css" integrity="sha512-rW57Zu9aMzwqAo5AyPqx9AcN+r1JawUBBFxt5RcJS23sh1kX3KeXJYsDBTZbeV2f11jHCoyW5zmnBChL4LFxxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/plugin/highlight/monokai.min.css" integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<!-- plugin notación matemática -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/plugin/math/math.min.js" integrity="sha512-8eviRBLZHoiXLqXeMl5XurkjNEGizTI8DHbSUoGxkYFd4RslHpIYTEQmLYtWUemc5FfMYOkPDFUcQKefPLjF7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-separator="---" data-markdown data-line-numbers>
+				<section data-separator="---" data-separator-notes="^Note:" data-markdown data-line-numbers>
     				<textarea data-template>
 ## [RevealJS](#)
 ### Versión 4.3.0
@@ -38,6 +42,11 @@
 2. elemento 2
 3. elemento 3
 
+---
+<!-- .slide: data-background-iframe="https://revealjs.com/backgrounds/" -->
+## [Background Iframe](#)
+
+Note: Iframe de ejemplo
 ---
 ## [Código](#)
 
@@ -66,6 +75,21 @@ System.out.println("=============");
 System.out.printf("Tu nota es %.2f", nota);
 ``` 
 
+---
+## [Plugin Notas](#)
+- Requiere correr la presentación desde un [servidor web](#) 
+- Para markdown debemos colocar [data-separator-notes="^Note:"](#)
+- Para iniciar la presentación con tiempo y notas debes apretar la tecla [***S***](#)
+
+Note:
+Esto solo se mostrará en la ventana de notas.
+
+---
+## [Notación Matemática](#)
+- Utiliza LaTeX para la sintaxis
+- En markdown debemos usar las expresiones con backticks 
+
+`$$ J(\theta_0,\theta_1) = \sum_{i=0} $$`
 
 				    </textarea>
 				</section>
@@ -86,7 +110,7 @@ System.out.printf("Tu nota es %.2f", nota);
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
