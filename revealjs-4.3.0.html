@@ -42,12 +42,78 @@
 2. elemento 2
 3. elemento 3
 
+===
+<!-- .slide: data-background="#ff0000" style="background: blue;" -->
+## [Slide 2](#)
+
+1. elemento 1
+2. elemento 2
+3. elemento 3
+
 ---
 <!-- .slide: data-background-iframe="https://revealjs.com/backgrounds/" -->
 ## [Background Iframe](#)
 
 Note: Iframe de ejemplo
 
+---
+## [2 Columnas](#)
+```java[] 
+public class Empleado {
+	private String nombre;
+	private String rut;	
+	protected int sueldo;
+	
+	public Empleado(
+			String nombre, 
+			String rut, 
+			int sueldo) {
+		this.nombre = nombre;
+		this.rut    = rut;
+		this.sueldo = sueldo; 
+	}
+
+	public String getNombre(){
+		return this.nombre;
+	}
+
+// continuar la implementación ...
+}
+```
+<!-- .element: style="float: left; width: 45%;"-->
+
+```java[] 
+public class Docente extends Empleado {
+	private int horasTrabajadas;
+
+	public Docente(
+			String nombre,
+			String rut,
+			int sueldo,
+			int horasTrabajadas
+				) {
+		super(nombre, rut, sueldo);
+		this.horasTrabajadas = horasTrabajadas;
+	}
+
+	// no relevante para el ejemplo 
+	private void sop(String t) {
+		System.out.println(t);
+	}
+
+	public void mostrarLiquidacion(){
+		// NO puedo llamar directamente 
+		// a this.nombre porque es private 
+		sop( this.getNombre() );
+		// a sueldo si, pq es protected 
+		sop( "Sueldo:" + this.sueldo );
+		// por implementar ...
+	}
+	
+}
+
+```
+<!-- .element: style="float: right; width: 55%;"-->
 ---
 ## [Fragmentos](#)
 
@@ -56,7 +122,8 @@ Note: Iframe de ejemplo
 - tres   <!-- .element: class="fragment" data-fragment-index="4" -->
 - cuatro <!-- .element: class="fragment" data-fragment-index="3" -->
 - cinco  <!-- .element: class="fragment" data-fragment-index="5" -->
----
+
+===
 ## [Fragmentos](#)
 
 - uno    <!-- .element: class="fragment" -->
@@ -64,12 +131,13 @@ Note: Iframe de ejemplo
 - tres   <!-- .element: class="fragment highlight-red" -->
 - cuatro <!-- .element: class="fragment fade-in-then-out" -->
 - cinco  <!-- .element: class="fragment fade-up" -->
+
 ---
 ## [Código](#)
 
 - Los corchetes muestran los números de línea 
 - Un número entre los corchetes destaca la línea 
-```java[] 
+```java
 System.out.println("Hola Mundo!!!");
 ``` 
 
@@ -79,7 +147,7 @@ System.out.printf("Hola %s!!!", nombre);
 System.out.println("=============");
 ``` 
 
----
+===
 ## [Código](#)
 
 - Los números entre corchetes y separados por pipes (|) generan la secuencia de diapos
