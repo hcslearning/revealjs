@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Aprendiendo RevealJS 5</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reset.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.css" />
+		
+		<!-- otros themes: https://revealjs.com/themes/ Ejemplos: black, white, league, beige, sky, night, serif, simple, solarized, blood, moon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/theme/league.min.css" />
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/theme/blood.min.css" /> -->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/highlight/monokai.min.css" />
+		
+		<!-- plugin notación matemática -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/math/math.min.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-separator="^---$" data-separator-vertical="^===$" data-separator-notes="^Note:" data-markdown data-line-numbers>
+    				<textarea data-template>
+## [RevealJS](#)
+### Versión 5.0.2
+
+---
+## [Slide 1](#)
+
+- elemento 1
+- elemento 2 <!-- .element: style="font-size: 1.5em; color: red;" -->
+- elemento 3
+
+===
+<!-- .slide: data-background="#ff0000" style="background: blue;" -->
+## [Slide 2](#)
+
+1. elemento 1
+2. elemento 2
+3. elemento 3
+
+===
+<!-- .slide: data-background="#ff0000" style="background: blue;" -->
+## [Slide 2](#)
+
+1. elemento 1
+2. elemento 2
+3. elemento 3
+
+---
+<!-- .slide: data-background-iframe="https://revealjs.com/backgrounds/" -->
+## [Background Iframe](#)
+
+Note: Iframe de ejemplo
+
+---
+## [2 Columnas](#)
+```java[] 
+public class Empleado {
+	private String nombre;
+	private String rut;	
+	protected int sueldo;
+	
+	public Empleado(
+			String nombre, 
+			String rut, 
+			int sueldo) {
+		this.nombre = nombre;
+		this.rut    = rut;
+		this.sueldo = sueldo; 
+	}
+
+	public String getNombre(){
+		return this.nombre;
+	}
+
+// continuar la implementación ...
+}
+```
+<!-- .element: style="float: left; width: 45%;"-->
+
+```java[] 
+public class Docente extends Empleado {
+	private int horasTrabajadas;
+
+	public Docente(
+			String nombre,
+			String rut,
+			int sueldo,
+			int horasTrabajadas
+				) {
+		super(nombre, rut, sueldo);
+		this.horasTrabajadas = horasTrabajadas;
+	}
+
+	// no relevante para el ejemplo 
+	private void sop(String t) {
+		System.out.println(t);
+	}
+
+	public void mostrarLiquidacion(){
+		// NO puedo llamar directamente 
+		// a this.nombre porque es private 
+		sop( this.getNombre() );
+		// a sueldo si, pq es protected 
+		sop( "Sueldo:" + this.sueldo );
+		// por implementar ...
+	}
+	
+}
+
+```
+<!-- .element: style="float: right; width: 55%;"-->
+---
+## [Fragmentos](#)
+
+- uno    <!-- .element: class="fragment" data-fragment-index="1" -->
+- dos    <!-- .element: class="fragment" data-fragment-index="2" -->
+- tres   <!-- .element: class="fragment" data-fragment-index="4" -->
+- cuatro <!-- .element: class="fragment" data-fragment-index="3" -->
+- cinco  <!-- .element: class="fragment" data-fragment-index="5" -->
+
+===
+## [Fragmentos](#)
+
+- uno    <!-- .element: class="fragment" -->
+- dos    <!-- .element: class="fragment fade-out" -->
+- tres   <!-- .element: class="fragment highlight-red" -->
+- cuatro <!-- .element: class="fragment fade-in-then-out" -->
+- cinco  <!-- .element: class="fragment fade-up" -->
+
+---
+## [Código](#)
+
+- Los corchetes muestran los números de línea 
+- Un número entre los corchetes destaca la línea 
+```java
+System.out.println("Hola Mundo!!!");
+``` 
+
+```java[2] 
+String nombre = "Juanito Pérez";
+System.out.printf("Hola %s!!!", nombre);
+System.out.println("=============");
+``` 
+
+===
+## [Código](#)
+
+- Los números entre corchetes y separados por pipes (|) generan la secuencia de diapos
+
+```java[1-2|3|4] 
+String nombre = "Juanito Pérez";
+float nota = 5.8;
+System.out.printf("Hola %s!!!", nombre);
+System.out.println("=============");
+System.out.printf("Tu nota es %.2f", nota);
+``` 
+
+---
+## [Plugin Notas](#)
+- Requiere correr la presentación desde un [servidor web](#) 
+- Para markdown debemos colocar [data-separator-notes="^Note:"](#)
+- Para iniciar la presentación con tiempo y notas debes apretar la tecla [***S***](#)
+
+Note:
+Esto solo se mostrará en la ventana de notas.
+
+---
+## [Notación Matemática](#)
+- Utiliza LaTeX para la sintaxis
+- En markdown debemos usar las expresiones con backticks 
+
+`$$ J(\theta_0,\theta_1) = \sum_{i=0} $$`
+
+---
+## [Print PDF](#)
+Puedes imprimir como PDF la presentación agregando al final de la URL ?print-pdf
+- Solo funciona en Chrome
+- Ejemplo: https://hcslearning.github.io/revealjs/revealjs-4.3.0.html?print-pdf
+
+---
+## [Navegación](#)
+- Apreta la tecla [ESC](#) para ver la vista reducida de todas las diapositivas
+- Puedes navegar sobre ellas con las teclas de flechas 
+
+---
+## [Tablas](#)
+|h1|h2|
+|--|--|
+|a|b|
+				    </textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/notes/notes.min.js"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				//hash: true,
+				// Activate the scroll view
+				view: 'scroll',
+
+				// Force the scrollbar to remain visible
+				scrollProgress: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+	</body>
+</html>
